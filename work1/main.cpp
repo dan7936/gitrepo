@@ -177,13 +177,26 @@ int main()
 для игры в крестики-нолики
 */
 	enum Tic_Tac_Toe {CROSS, ZERO, EMPTY};
-	char Game_Chars[] = { 'X', '0', ' ' };
+	char Game_Chars[] = { 'X', '0', ' ' }; // задаем библиотеку символов для игры в крестики-нолики
 	std::cout << "For definition of CROSS we will using: " << Game_Chars[CROSS] << std::endl;
 	std::cout << "For definition of ZERO we will using: " << Game_Chars[ZERO] << std::endl;
 	std::cout << "For definition of EMPTY we will using: " << Game_Chars[EMPTY] << std::endl;
 
-	char Array[GameField][GameField] = { Game_Chars[CROSS] };
-	std::cout << "1" << Array[0][0] << "2" << Array[0][1] << std::endl;
+	Tic_Tac_Toe Array[GameField][GameField] = { CROSS };                                               
+	// мне открыли глаза, что можно использовать число из одного массива, 
+	// как индекс для вытягивание значения из другого массива, вух вот это магия
+	std::cout << "First symbol in Array = " << Game_Chars[Array[0][0]] << " Second symbol in Array = " << Game_Chars[Array[0][1]] << std::endl; 
+	{
+		for (int row = 0; row < GameField; ++row)
+		{
+			for (int col = 0; col < GameField; ++col)
+				std::cout << Game_Chars[Array[row][col]] << "\t";
+
+			std::cout << '\n';
+
+		}
+	}
+
 
 
 	
